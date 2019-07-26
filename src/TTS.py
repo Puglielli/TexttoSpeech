@@ -22,15 +22,24 @@ engine.setProperty('voice', voices[1].id)   #changing index, changes voices. 1 f
 
 #engine.say("Hello World!")
 #engine.say('My current speaking rate is ' + str(rate))
+
+#engine.say("olá")
+#engine.runAndWait()
+#engine.stop()
+
+def format(text):
+    text = text.replace("\n", "")
+    text = text.replace(" ", "")
+    text = text[:10]
+    text = "audio_" + text + ".wav"
+    return text
+
+
+
 text = ('''
-    Bom dia!
+    Sua ligação será transferida para um consultor de serviço. Para a sua segurança a ligação será gravada. 
         ''')
 
-engine.say("olá")
-engine.runAndWait()
-engine.stop()
-
-
 tts = gTTS(text=text, lang='pt')
-tts.save("opcao1.wav")
+tts.save(format(text))
 print("File saved!")
